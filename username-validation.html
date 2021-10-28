@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function CodelandUsernameValidation(str) { 
+
+// if str.lenght less or equal than 4 or greater or equal than 25
+//str = false
+
+const letters = /^[a-zA-Z]+$/; //regex to find letters
+const letterAndNumbers = /^[0-9a-zA-Z_]+$/; // regex to test letters and numbers
+
+if (str.length < 4 || str.length > 25){
+  str = false;
+} else if (str.charAt((str.length)-1) === '_'){
+  // if last char is '_' str = false
+  str = false;
+} else if (!(letters.test(str.charAt(0)))){
+  // if first char is not a letter str = false
+  str = false;
+} else if (!(letterAndNumbers.test(str))){
+  // if string contains something other than letters or numbers
+  str = false;
+} else {
+  str = true;
+}
+return str; 
+}
+ 
+// keep this function call here 
+console.log(CodelandUsernameValidation(readline()));
+
+// not bad for someone who started javascript 3 days ago!
+    </script>
+</body>
+</html>
